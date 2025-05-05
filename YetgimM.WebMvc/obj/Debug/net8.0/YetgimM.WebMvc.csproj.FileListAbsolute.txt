@@ -28,3 +28,4 @@ C:\Users\Pendik\RiderProjects\YetgimM\YetgimM.WebMvc\obj\Debug\net8.0\refint\Yet
 C:\Users\Pendik\RiderProjects\YetgimM\YetgimM.WebMvc\obj\Debug\net8.0\YetgimM.WebMvc.pdb
 C:\Users\Pendik\RiderProjects\YetgimM\YetgimM.WebMvc\obj\Debug\net8.0\YetgimM.WebMvc.genruntimeconfig.cache
 C:\Users\Pendik\RiderProjects\YetgimM\YetgimM.WebMvc\obj\Debug\net8.0\ref\YetgimM.WebMvc.dll
+C:\Users\Pendik\RiderProjects\YetgimM\YetgimM.WebMvc\obj\Debug\net8.0\YetgimM.WebMvc.sourcelink.json

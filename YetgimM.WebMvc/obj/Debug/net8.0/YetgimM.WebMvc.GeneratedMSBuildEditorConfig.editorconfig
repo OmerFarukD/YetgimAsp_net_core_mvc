@@ -18,6 +18,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Pendik\RiderProjects\YetgimM\YetgimM.WebMvc
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Pendik/RiderProjects/YetgimM/YetgimM.WebMvc/Views/Cars/Filter1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fyc1xGaWx0ZXIxLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Pendik/RiderProjects/YetgimM/YetgimM.WebMvc/Views/Cars/Filter2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fyc1xGaWx0ZXIyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Pendik/RiderProjects/YetgimM/YetgimM.WebMvc/Views/Cars/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fyc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

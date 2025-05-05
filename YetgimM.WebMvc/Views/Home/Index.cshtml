@@ -1,0 +1,27 @@
+﻿ @*Razor Syntax*@
+
+@{
+    ViewData["Title"] = "Home Page";
+
+    string name = "Buse";
+    string surname = "Doğan";
+    int age = 15;
+}
+
+@if(age < 18)
+{
+    <p>Ehliyet alamazsınız</p>
+}
+else
+{
+    <p>Ehliyet Alabilirsiniz.</p>
+}
+
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p class="text-danger py-2">Kişi Adı : @name</p>
+    <p class="text-danger py-2">Kişi Adı : @surname</p>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>

@@ -149,9 +149,32 @@ public class CarsController : Controller
    {
        Cars = filteredList
    };
-   
-   
    return View(viewModel);
     }
 
+
+    
+    
+    public IActionResult Filter3()
+    {
+        var filtered = cars.OrderBy(x => x.Brand).ToList();
+        return View(filtered);
+
+    }
+
+    public IActionResult Deneme()
+    {
+        Employee emo = new Employee()
+        {
+            CreatedDate = "",
+            
+        };
+        
+        
+        
+        return NotFound();
+    }
+    
+    
+    
 }

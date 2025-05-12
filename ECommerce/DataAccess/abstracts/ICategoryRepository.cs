@@ -2,7 +2,7 @@
 
 namespace ECommerce.DataAccess.abstracts;
 
-public interface IProductRepository : IRepository<Product,Guid>
+public interface ICategoryRepository : IRepository<Category,int>
 {
-   
+  
 }

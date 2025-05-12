@@ -142,3 +142,17 @@ C:\Users\Pendik\RiderProjects\YetgimM\ECommerce\obj\Debug\net8.0\refint\ECommerc
 C:\Users\Pendik\RiderProjects\YetgimM\ECommerce\obj\Debug\net8.0\ECommerce.pdb
 C:\Users\Pendik\RiderProjects\YetgimM\ECommerce\obj\Debug\net8.0\ECommerce.genruntimeconfig.cache
 C:\Users\Pendik\RiderProjects\YetgimM\ECommerce\obj\Debug\net8.0\ref\ECommerce.dll
+C:\Users\Pendik\RiderProjects\YetgimM\ECommerce\bin\Debug\net8.0\AWSSDK.Core.dll
+C:\Users\Pendik\RiderProjects\YetgimM\ECommerce\bin\Debug\net8.0\AWSSDK.SecurityToken.dll
+C:\Users\Pendik\RiderProjects\YetgimM\ECommerce\bin\Debug\net8.0\DnsClient.dll
+C:\Users\Pendik\RiderProjects\YetgimM\ECommerce\bin\Debug\net8.0\MongoDB.Bson.dll
+C:\Users\Pendik\RiderProjects\YetgimM\ECommerce\bin\Debug\net8.0\MongoDB.Driver.dll
+C:\Users\Pendik\RiderProjects\YetgimM\ECommerce\bin\Debug\net8.0\MongoDB.Driver.Core.dll
+C:\Users\Pendik\RiderProjects\YetgimM\ECommerce\bin\Debug\net8.0\MongoDB.EntityFrameworkCore.dll
+C:\Users\Pendik\RiderProjects\YetgimM\ECommerce\bin\Debug\net8.0\MongoDB.Libmongocrypt.dll
+C:\Users\Pendik\RiderProjects\YetgimM\ECommerce\bin\Debug\net8.0\SharpCompress.dll
+C:\Users\Pendik\RiderProjects\YetgimM\ECommerce\bin\Debug\net8.0\Snappier.dll
+C:\Users\Pendik\RiderProjects\YetgimM\ECommerce\bin\Debug\net8.0\ZstdSharp.dll
+C:\Users\Pendik\RiderProjects\YetgimM\ECommerce\bin\Debug\net8.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\Pendik\RiderProjects\YetgimM\ECommerce\bin\Debug\net8.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\Pendik\RiderProjects\YetgimM\ECommerce\bin\Debug\net8.0\runtimes\win\native\mongocrypt.dll

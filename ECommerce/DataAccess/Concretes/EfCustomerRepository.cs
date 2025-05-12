@@ -1,33 +1,12 @@
 ﻿using ECommerce.DataAccess.abstracts;
+using ECommerce.DataAccess.Contexts;
 using ECommerce.Models;
 
 namespace ECommerce.DataAccess.Concretes;
 
-public class EfCustomerRepository : ICustomerRepository
+public class EfCustomerRepository :EfRepositoryBase<Customer,long,BaseDbContext>, ICustomerRepository
 {
-    
-    public void Add(Customer entity)
+    public EfCustomerRepository(BaseDbContext context) : base(context)
     {
-        throw new NotImplementedException();
-    }
-
-    public void Update(Customer entity)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Delete(Customer entity)
-    {
-        throw new NotImplementedException();
-    }
-
-    public List<Customer> GetAll()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Customer? GetById(long id)
-    {
-        throw new NotImplementedException();
     }
 }

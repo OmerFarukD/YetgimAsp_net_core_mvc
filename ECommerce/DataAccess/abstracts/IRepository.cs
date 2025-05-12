@@ -1,4 +1,5 @@
-﻿using ECommerce.Models;
+﻿using System.Linq.Expressions;
+using ECommerce.Models;
 
 namespace ECommerce.DataAccess.abstracts;
 
@@ -8,6 +9,7 @@ where TEntity : Entity<TId>
     void Add(TEntity entity);
     void Update(TEntity entity);
     void Delete(TEntity entity);
-    List<TEntity> GetAll();
-    TEntity? GetById(TId id);
+    List<TEntity> GetAll(Expression<Func<TEntity,bool>>? filter = null,bool include = true, bool tracking = true);
+    TEntity? Get(Expression<Func<TEntity,bool>> filter, bool include = true, bool tracking = true);
+    
 }

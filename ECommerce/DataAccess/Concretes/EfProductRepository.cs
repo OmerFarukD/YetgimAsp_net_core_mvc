@@ -4,45 +4,15 @@ using ECommerce.Models;
 
 namespace ECommerce.DataAccess.Concretes;
 
-public class EfProductRepository : IProductRepository
+public class EfProductRepository : EfRepositoryBase<Product,Guid,BaseDbContext>, IProductRepository
 {
-    private BaseDbContext _context;
-
-    public EfProductRepository(BaseDbContext context)
+    public EfProductRepository(BaseDbContext context) : base(context)
     {
-        _context = context;
-    }
-    
-    
-    public void Add(Product product)
-    {
-        product.CreatedTime = DateTime.Now;
-        _context.Products.Add(product);
-        _context.SaveChanges();
     }
 
-    public void Update(Product product)
+    public List<Product> GetAllByPriceRange(double min, double max)
     {
-        product.UpdatedTime = DateTime.Now;
-        _context.Products.Update(product);
-        _context.SaveChanges();
+        // select * from products where Price<= max and Price >= min
+        return _context.Products.Where(x => x.Price <= max && x.Price >= min).ToList();
     }
-
-    public void Delete(Product product)
-    {
-        product.CreatedTime = DateTime.Now;
-        _context.Products.Remove(product);
-        _context.SaveChanges();
-    }
-
-    public List<Product> GetAll()
-    {
-        return _context.Products.ToList();
-    }
-
-    public Product? GetById(Guid id)
-    {
-        return _context.Products.Find(id);
-    }
-    
 }

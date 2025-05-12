@@ -1,5 +1,6 @@
 ﻿using ECommerce.DataAccess.Contexts;
 using ECommerce.Models;
+using ECommerce.Models.Dtos.Products;
 using ECommerce.Services.Abstracts;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,7 +23,7 @@ public class ProductsController : Controller
     public IActionResult Index()
     {
         // SELECT * FROM Products
-        List<Product> products = _productService.GetAll();
+        List<ProductResponseDto> products = _productService.GetAll();
         return View(products);
     }
 

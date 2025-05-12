@@ -2,7 +2,7 @@
 using ECommerce.Models;
 using ECommerce.Models.Dtos.Products;
 using ECommerce.Services.Abstracts;
-using ECommerce.Services.Mappers;
+
 
 namespace ECommerce.Services.Concretes;
 
@@ -24,7 +24,7 @@ public class ProductService : IProductService
        
         
         List<Product> products = _productRepository.GetAll(include:true);
-        List<ProductResponseDto> responseDtos = ProductsMapper.ConvertToResponseList(products);
+        List<ProductResponseDto> responseDtos = products.Select(x=> (ProductResponseDto)x).ToList();
         
         return responseDtos;
     }
@@ -32,7 +32,7 @@ public class ProductService : IProductService
     public ProductResponseDto? GetById(Guid id)
     {
         Product product =  _productRepository.Get(filter:x=>x.Id == id);
-        ProductResponseDto response = ProductsMapper.ConvertToResponse(product);
+        ProductResponseDto response = product;
         
         return response;
     }
@@ -52,8 +52,5 @@ public class ProductService : IProductService
         Product product = _productRepository.Get(x=>x.Id == id);
         _productRepository.Delete(product);
     }
-
-
-    
     
 }

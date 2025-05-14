@@ -1,8 +1,11 @@
-﻿using ECommerce.DataAccess.Contexts;
+﻿using AutoMapper;
 using ECommerce.Models;
 using ECommerce.Models.Dtos.Products;
+using ECommerce.Models.ViewModels.Products;
 using ECommerce.Services.Abstracts;
+using ECommerce.Services.Mappers;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ECommerce.Controllers;
 
@@ -10,14 +13,18 @@ public class ProductsController : Controller
 { 
     
    private readonly IProductService _productService;
+   private readonly IMapper _mapper;
 
-   public ProductsController(IProductService productService)
+
+   public ProductsController(IProductService productService, IMapper mapper)
    {
        _productService = productService;
+       _mapper = mapper;
+
    }
-    
-    
-    // GET : bir kaynağı okuma işlemi yapar
+
+
+   // GET : bir kaynağı okuma işlemi yapar
     
     [HttpGet]
     public IActionResult Index()
@@ -30,19 +37,26 @@ public class ProductsController : Controller
     [HttpGet]
     public IActionResult Add()
     {
+       
         return View();
     }
 
 
     [HttpPost]
-    public IActionResult Add(Product product)
+    public IActionResult Add(ProductAddViewModel viewModel)
     {
+        if (!ModelState.IsValid)
+        {
+            return View();
+        }
         
+        Product product = _mapper.Map<Product>(viewModel);
         _productService.Add(product);
         return RedirectToAction("Index","Home");
     }
 
 
+    // Attribute
     [HttpGet]
     public IActionResult Detail(Guid id)
     {
@@ -53,13 +67,13 @@ public class ProductsController : Controller
     }
 
 
-    [HttpGet]
+    /*[HttpGet]
     public IActionResult Update(Guid id)
     {
 
         var product = _productService.GetById(id);
         return View(product);
-    }
+    }*/
 
 
     [HttpPost]

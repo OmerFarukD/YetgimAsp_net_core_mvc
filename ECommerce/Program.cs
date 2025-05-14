@@ -1,9 +1,11 @@
+using System.Reflection;
 using ECommerce.DataAccess.abstracts;
 using ECommerce.DataAccess.Concretes;
 using ECommerce.DataAccess.Contexts;
+using ECommerce.Models;
 using ECommerce.Services.Abstracts;
 using ECommerce.Services.Concretes;
-
+using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -13,10 +15,20 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddDbContext<BaseDbContext>();
 builder.Services.AddScoped<IProductRepository,EfProductRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICategoryRepository, EfCategoryRepository>();
-builder.Services.AddDbContext<BaseDbContext>();
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+builder.Services.AddIdentity<User, IdentityRole>(opt =>
+    {
+        opt.User.RequireUniqueEmail = true;
+        opt.Password.RequireNonAlphanumeric = false;
+        opt.Password.RequiredLength = 6;
+    }
+).AddEntityFrameworkStores<BaseDbContext>();
+
+
 
 var app = builder.Build();
 
@@ -33,6 +45,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

@@ -1,11 +1,13 @@
 ﻿using System.Reflection;
 using ECommerce.DataAccess.Configurations;
 using ECommerce.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace ECommerce.DataAccess.Contexts
 {
-    public class BaseDbContext : DbContext
+    public class BaseDbContext : IdentityDbContext<User,IdentityRole,string>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -17,6 +19,7 @@ namespace ECommerce.DataAccess.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
 

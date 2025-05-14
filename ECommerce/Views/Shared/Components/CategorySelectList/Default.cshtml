@@ -1,0 +1,8 @@
+﻿@model ECommerce.Models.ViewModels.Products.ProductAddViewModel
+
+<div>
+    <label class="form-label">Kategori</label>
+    <select asp-items="Model.Categories" asp-for="CategoryId" class="form-select" aria-label="Default select example">
+        <option selected>Lütfen bir kategori Seçiniz.</option>
+    </select>
+</div>

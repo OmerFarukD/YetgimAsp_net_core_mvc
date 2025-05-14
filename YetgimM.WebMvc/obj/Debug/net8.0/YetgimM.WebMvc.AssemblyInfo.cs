@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("YetgimM.WebMvc")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b3f223e4c4939d3a1b65246402d888c9e008c1dd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9dd376f217c1aefe59246df037951320ea570ae4")]
 [assembly: System.Reflection.AssemblyProductAttribute("YetgimM.WebMvc")]
 [assembly: System.Reflection.AssemblyTitleAttribute("YetgimM.WebMvc")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

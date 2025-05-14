@@ -20,7 +20,7 @@ where TContext : DbContext
     public void Add(TEntity entity)
     {
         entity.CreatedTime = DateTime.Now;
-        _context.Set<TEntity>().Add(entity);
+        _context.Set<TEntity>().Entry(entity).State = EntityState.Added;
         _context.SaveChanges();
     }
 

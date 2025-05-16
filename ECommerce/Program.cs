@@ -2,6 +2,7 @@ using System.Reflection;
 using ECommerce.DataAccess.abstracts;
 using ECommerce.DataAccess.Concretes;
 using ECommerce.DataAccess.Contexts;
+using ECommerce.Helpers;
 using ECommerce.Models;
 using ECommerce.Services.Abstracts;
 using ECommerce.Services.Concretes;
@@ -22,6 +23,7 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICategoryRepository, EfCategoryRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddSingleton<AuthenticationHelper>();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddHttpContextAccessor();
@@ -33,18 +35,11 @@ builder.Services.AddIdentity<User, IdentityRole>(opt =>
     }
 ).AddEntityFrameworkStores<BaseDbContext>();
 
-
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(opt =>
-    {
-        opt.LoginPath = "/Authentication/Login";
-        opt.LogoutPath = "/Authentication/LogOut";
-        opt.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-        opt.Cookie.HttpOnly = true;
-        opt.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
-        opt.Cookie.SameSite = SameSiteMode.Lax;
-    });
-
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Authentication/Login";
+    options.LogoutPath = "/Authentication/LogOut";
+});
 
 var app = builder.Build();
 

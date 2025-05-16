@@ -1,33 +1,24 @@
 ﻿using System.Security.Claims;
+using ECommerce.Models;
 using ECommerce.Models.Dtos.Users;
 using ECommerce.Services.Abstracts;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 
 namespace ECommerce.Services.Concretes;
 
-public class AuthService(IUserService userService,IHttpContextAccessor contextAccessor) : IAuthService
+public class AuthService(SignInManager<User> signInManager,IUserService userService,IHttpContextAccessor contextAccessor) : IAuthService
 {
     public async Task LoginAndAddCookieAsync(UserLoginDto dto)
     {
         var user = await userService.LoginAsync(dto);
-
-        List<Claim> claims = new List<Claim>()
-        {
-            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new Claim(ClaimTypes.Name, user.Name),
-            new Claim(ClaimTypes.Email, user.Email)
-        };
-
-        ClaimsIdentity claimsIdentity = new(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-
-        ClaimsPrincipal principal = new ClaimsPrincipal(claimsIdentity);
-        // Oturum aç
-        await contextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,principal);
+        await signInManager.SignInAsync(user, isPersistent: false);
+        
     }
 
     public async Task LogOutAsync()
     {
-        await contextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        await contextAccessor.HttpContext.SignOutAsync();
     }
 }
